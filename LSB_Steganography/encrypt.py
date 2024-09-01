@@ -38,8 +38,6 @@ def Encode(src_path, message, dest_path):
               if index < req_pixels:
                   array[p][q] = int(bin(array[p][q])[2:9] + b_message[index], 2)
                   index += 1
-              else:
-                 print("message size exceeded image size")
         
     #Saving the encoding
     array=array.reshape(height, width, n)
