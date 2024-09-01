@@ -14,18 +14,18 @@ def Decode(src):
 
     hidden_bits = ""
     for p in range(total_pixels):
-        for q in range(0, 3):
+        for q in range(0, n):
             hidden_bits += (bin(array[p][q])[2:][-1])
 
     hidden_bits = [hidden_bits[i:i+8] for i in range(0, len(hidden_bits), 8)]
 
     message = ""
     for i in range(len(hidden_bits)):
-        if message[-5:] == "$t3g0":
+        if message[-4:] == "$$82":
             break
         else:
             message += chr(int(hidden_bits[i], 2))
-    if "$t3g0" in message:
-        print("Hidden Message:", message[:-5])
+    if "$$82" in message:
+        print("Hidden Message:", message[:-4])
     else:
         print("No Hidden Message Found")
